@@ -14,8 +14,6 @@ SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 */
 
 --Tuesday
-UPDATE animals SET species = NULL;
-
 BEGIN;
 UPDATE animals SET species = 'unspecified';
 SELECT * FROM animals;
@@ -37,4 +35,18 @@ DELETE FROM animals;
 SELECT * FROM animals;
 --3rd transaction
 ROLLBACK;
+SELECT * FROM animals ORDER BY id;
+
+BEGIN;
+DELETE FROM animals
+WHERE date_of_birth > DATE '2022-01-01';
+SAVEPOINT animals_after_JAN2022;
+SELECT * FROM animals ORDER BY id;
+UPDATE animals SET weight_kg = weight_kg * -1;
+SELECT * FROM animals ORDER BY id;
+ROLLBACK TO animals_after_JAN2022;
+UPDATE animals SET weight_kg = weight_kg * -1
+WHERE weight_kg < 0;
+--4th transaction
+COMMIT;
 SELECT * FROM animals ORDER BY id;
