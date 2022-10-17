@@ -4,7 +4,7 @@
 
 /*
 SELECT * FROM animals WHERE name LIKE '%mon';
-SELECT name FROM animals WHERE date_of_birth BETWEEN DATE '2016-01-01' AND '2019-01-01';
+SELECT name FROM animals WHERE date_of_birth BETWEEN DATE '2016-01-01' AND '2019-12-31';
 SELECT name FROM animals WHERE neutered = 'TRUE' AND escape_attempts < 3;
 SELECT date_of_birth FROM animals WHERE name IN('Agumon','Pikachu');
 SELECT name, escape_attempts FROM animals WHERE weight_kg > 10.5;
@@ -50,3 +50,12 @@ WHERE weight_kg < 0;
 --4th transaction
 COMMIT;
 SELECT * FROM animals ORDER BY id;
+
+--Aggregates 
+SELECT * from animals;
+SELECT COUNT(*) AS "Animals_Count" FROM animals;
+SELECT COUNT(*) AS "Escapee_Animals_Count" FROM animals WHERE escape_attempts = 0;
+SELECT AVG(weight_kg) AS "Average_Animal_Weight" FROM animals;
+SELECT neutered, SUM(escape_attempts) AS "All_Escapes" FROM animals GROUP BY neutered;
+SELECT species, MAX(weight_kg) AS "Maximum Weight", MIN(weight_kg) AS "Minimum Weight" FROM animals GROUP BY species;
+SELECT species, AVG(escape_attempts) AS "Average_Escape" FROM animals WHERE date_of_birth BETWEEN DATE '1990-01-01' AND '2000-12-31' GROUP BY species; 
