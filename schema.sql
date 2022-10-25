@@ -2,9 +2,9 @@
 DROP TABLE IF EXISTS visits;
 DROP TABLE IF EXISTS specializations;
 DROP TABLE IF EXISTS vets;
-DROP TABLE IF EXISTS owners;
-DROP TABLE IF EXISTS species;
 DROP TABLE IF EXISTS animals;
+DROP TABLE IF EXISTS species;
+DROP TABLE IF EXISTS owners;
 --Week 1
 --Monday
 
