@@ -102,7 +102,7 @@ CREATE TABLE visits (
 
 -- Week 2
 --Monday
-
+/*
 CREATE TABLE owners (
     id BIGSERIAL NOT NULL PRIMARY KEY,
     full_name varchar(100) NOT NULL,
@@ -145,3 +145,46 @@ ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 CREATE INDEX visits_animal_id ON visits(animal_id);
 CREATE INDEX visits_vet_id ON visits(vet_id);
 CREATE INDEX owners_email ON owners(email);
+*/
+
+--Tuesday
+--Prepare tables for schema diagram 
+CREATE TABLE owners (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    full_name varchar(100) NOT NULL,
+    age INT NOT NULL
+);
+
+CREATE TABLE species (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name varchar(100) NOT NULL
+);
+
+CREATE TABLE animals (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name varchar(100) NOT NULL,
+    species_id INT NULL REFERENCES species(id) ON DELETE CASCADE,
+    owner_id INT NULL REFERENCES owners(id) ON DELETE CASCADE,
+    date_of_birth DATE NOT NULL,
+    escape_attempts INT NOT NULL,
+    neutered BOOLEAN NOT NULL,
+    weight_kg DECIMAL NOT NULL
+);
+
+CREATE TABLE vets (
+    id BIGSERIAL NOT NULL PRIMARY KEY,
+    name varchar(100) NOT NULL,
+    age INT NOT NULL,
+    date_of_graduation DATE NOT NULL
+);
+
+CREATE TABLE specializations (
+    species_id INT NULL REFERENCES species(id) ON DELETE CASCADE,
+    vet_id INT NULL REFERENCES vets(id) ON DELETE CASCADE
+);
+
+CREATE TABLE visits (
+    animal_id INT NULL REFERENCES animals(id) ON DELETE CASCADE,
+    vet_id INT NULL REFERENCES vets(id) ON DELETE CASCADE,
+    date_of_visit DATE NOT NULL
+);
