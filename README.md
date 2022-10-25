@@ -9,7 +9,8 @@
 - Visual Studio Code
 - Schema Diagram [drawSQL](https://drawsql.app/)
 ## Schema Diagram
-In progress :smile:
+
+![schema-diagram](https://user-images.githubusercontent.com/84629565/197779768-f3cc781e-e690-479f-a6c6-243dd852721c.png)
 ## Getting Started
 
 This repository includes files with plain SQL that can be used to recreate a database:
