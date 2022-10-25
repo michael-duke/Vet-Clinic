@@ -28,6 +28,12 @@ This repository includes files with plain SQL that can be used to recreate a dat
 - Twitter: [@MikeDuke21](https://twitter.com/MikeDuke21)
 - LinkedIn: [MICHAEL MESFIN](https://linkedin.com/in/https://www.linkedin.com/in/michael-21-duke/)
 
+👤 **Kehinde Onifade**
+
+- GitHub: [@kendoriddy](https://github.com/kendoriddy)
+- Twitter: [@RideOnOne09](https://twitter.com/RideOnOne09)
+- LinkedIn: [Kehinde Ridwan Onifade](https://www.linkedin.com/in/kehindeonifade/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
